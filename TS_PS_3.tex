@@ -1,0 +1,128 @@
+%Preamble
+
+\documentclass[12pt]{article}
+\renewcommand{\baselinestretch}{1.5}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage[titletoc,title]{appendix}
+\usepackage{bm}
+\usepackage[nohead]{geometry}
+\usepackage{setspace}
+\usepackage[bottom, hang, flushmargin]{footmisc}
+\usepackage{indentfirst}
+\usepackage{endnotes}
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{natbib}
+\usepackage[justification=centering, labelfont=bf, textfont=bf, labelsep=newline]{caption}
+\usepackage{pbox}
+\usepackage{array,rotating,threeparttable,booktabs,dcolumn,multirow}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\setcounter{MaxMatrixCols}{30}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\geometry{left=1in,right=1in,top=1.00in,bottom=1.0in}
+\DeclareMathOperator*{\argmin}{\arg\!\min}
+
+\begin{document}
+
+\singlespacing
+
+\noindent {EC 607: Time-Series Econometrics \\ Problem Set 3 \\ Melissa Wilson}
+
+
+
+\bigskip
+
+\doublespacing
+
+\noindent {\bf Task 2:}
+
+When collecting date, I retrieved seasonally adjusted data for all variables, except the federal funds rate, bond yield, and exchange rate, as these were not available. 
+
+\begin{enumerate}[(a)]
+	\item %Part A
+	After viewing the time series of all variables, I decide to test GDP, the foreign exchange rate, the federal funds rate, CPI, payroll employees, and the industrial production index for trend stationarity. This is because they appeared to follow a general trend, linear or otherwise, over time. I tested the unemployment rate and bond yields for covariance stationarity. 
+	
+	\item %Part B
+	The dicky-fuller tests yielded the following results.
+	
+	\ctable[caption={Time Trend Results},label=resultsb,pos=hbp!]{lccc}{}{
+		\FL
+		\cmidrule{2-3}\cmidrule{5-6} 
+		Variable & Test Statistic & Significance \ML
+		GDP & -1.90 & None \NN
+		Employed & -2.15 & None \NN
+		CPI & -3.58 & 5\% \NN
+		FFR & -2.81 & None \NN
+		IPI & -2.37 & None \NN
+		Exchange Rate & 0.17 & None \LL
+		}
+		
+	\ctable[caption={Covariance Stationary Results},label=resultsc,pos=hbc!]{lccc}{}{
+		\FL
+		\cmidrule{2-3}\cmidrule{5-6} 
+		Variable & Test Statistic & Significance \ML
+		Unemployment Rate & -2.96 & 5\% \NN
+		Bond Yield & -3.71 & 5\% \LL
+		}
+		
+	\item %Part C
+	After looking at the first difference time trends, I decided to test the first difference of the exchange rate as a time trend and all other variables as covariance stationary trends.
+	
+	\item %Part D
+	The following results are for the first difference series.
+	ctable[caption={ Covariance Stationary First Difference Results },label=resultsb,pos=hbp!]{lccc}{}{
+		\FL
+		\cmidrule{2-3}\cmidrule{5-6} 
+		Variable & Test Statistic & Significance \ML
+		dGDP & -5.62 & 1\% \NN
+		dEmployed & -4.93 & 1\% \NN
+		dFFR & -5.29 & 1\% \NN
+		dIPI & -6.59 & 1\% \LL
+		}
+	
+	\item %Part E
+	
+	\item %Part F
+
+\end{enumerate}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
